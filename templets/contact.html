@@ -132,16 +132,21 @@
 	<p id="p_26"></p>
 	</div>
 	<div id="form_status"></div>
-	<div class="contact-form">
-	<form id="fruitkha-contact" onsubmit="return valid_datas( this );" type="POST">
-	<p id="p_27"></p>
-	<p id="p_28"></p>
-	<p id="p_29"></p>
-	<input name="token" type="hidden" value="FsWga4&amp;@f6aw"/>
-	<p id="p_30"></p>
-	</form>
-	</div>
-	</div>
+					<div class="contact-form">
+						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );" action="{% url 'web:create_message' %}" method="post" >
+						
+								{% csrf_token %}
+							<p>
+								<input type="text" placeholder="Name" name="name" id="name">
+								<input type="email" placeholder="Email" name="email" id="email">
+							</p>
+							
+							<p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message" name="description" ></textarea></p>
+							<input type="hidden" name="token" value="FsWga4&@f6aw" />
+							<p><input type="submit" value="Submit"></p>
+						</form>
+					</div>
+				</div>
 	<div class="col-lg-4">
 	<div class="contact-form-wrap">
 	<div class="contact-form-box">
