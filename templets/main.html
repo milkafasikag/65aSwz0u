@@ -46,7 +46,7 @@
 <div class="main-menu-wrap">
 <!-- logo -->
 <div class="site-logo">
-<a href="index.html">
+<a href="{% url 'web:index' %}">
 <img alt="" src="{% get_image_url 8 %}"/>
 </a>
 </div>
@@ -65,6 +65,13 @@
 <li><a href="{% url 'web:contact' %}">Contact</a></li>
 
 </li>
+
+	{% if user.is_authenticated %}
+  
+<li class="list-inline-item"><a  href="{% url 'shop:logout' %}"><div>Logout</div></a></li>
+        {% else %}
+  <li class="list-inline-item"><a href="{% url 'shop:login' %}">Login/Register</a></li>
+ {% endif %}
 <li>
 <div class="header-icons">
 <a class="shopping-cart" href="{% url 'shop:cart_list' %}"><i class="fas fa-shopping-cart"></i></a>
